@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+    <!-- Ordem business object -->
+   <bean id="ordemBo" class="com.avenuecode.bo.impl.OrdemBoImpl" >
+   		<property name="ordemDao" ref="ordemDao" />
+   </bean>
+ 
+   <!-- Ordem Data Access Object -->
+   <bean id="ordemDao" class="com.avenuecode.dao.impl.OrdemDaoImpl" >
+   		<property name="sessionFactory" ref="sessionFactory"></property>
+   </bean>
+ 
+</beans>

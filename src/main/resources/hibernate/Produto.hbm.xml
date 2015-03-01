@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.avenuecode.model.Produto" table="TB_PRODUTO">
+        <id name="idProduto" type="java.lang.Integer">
+            <column name="ID_PRODUTO" />
+            <generator class="identity" />
+        </id>
+        <property name="nomeProduto" type="string">
+            <column name="NOME_PRODUTO" length="50" not-null="true" unique="false" />
+        </property>
+        <property name="valorProduto" type="java.math.BigDecimal">
+            <column name="VALOR_PRODUTO" not-null="true" unique="false" />
+        </property>
+        <property name="descricaoProduto" type="string">
+            <column name="DESCRICAO_PRODUTO" length="500" not-null="false" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

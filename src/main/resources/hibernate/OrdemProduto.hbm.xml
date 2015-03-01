@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.avenuecode.model.OrdemProduto" table="TB_ORDEM_PRODUTO">
+        <id name="idOrdemProduto" type="java.lang.Integer">
+            <column name="ID_ORDEM_PRODUTO" />
+            <generator class="identity" />
+        </id>
+		<many-to-one name="ordem" class="com.avenuecode.model.Ordem" fetch="select">
+            <column name="ID_ORDEM" not-null="true" />
+        </many-to-one>
+        <many-to-one name="produto" class="com.avenuecode.model.Produto" fetch="select">
+            <column name="ID_PRODUTO" not-null="true" />
+        </many-to-one>
+        <property name="statusOrdemProduto" type="string">
+            <column name="STATUS_ORDEM_PRODUTO" length="20" not-null="true" unique="false" />
+        </property>
+        <property name="quantidadeOrdemProduto" type="java.lang.Integer">
+            <column name="QUANTIDADE_ORDEM_PRODUTO" not-null="true" unique="false" />
+        </property>
+    </class>
+</hibernate-mapping>

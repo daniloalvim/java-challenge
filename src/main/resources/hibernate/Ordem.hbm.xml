@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.avenuecode.model.Ordem" table="TB_ORDEM">
+        <id name="idOrdem" type="java.lang.Integer">
+            <column name="ID_ORDEM" />
+            <generator class="identity" />
+        </id>
+        <property name="clienteOrdem" type="string">
+            <column name="CLIENTE_ORDEM" length="50" not-null="true" unique="false" />
+        </property>
+        <property name="dataOrdem" type="java.util.Date">
+            <column name="DATA_ORDEM" not-null="true" unique="false" />
+        </property>
+        <property name="statusOrdem" type="string">
+            <column name="STATUS_ORDEM" length="20" not-null="true" unique="false" />
+        </property>
+        <set name="ordemProdutos" table="TB_ORDEM_PRODUTO" cascade="all" inverse="true" lazy="true">
+            <key>
+                <column name="ID_ORDEM" not-null="true" />
+            </key>
+            <one-to-many class="com.avenuecode.model.OrdemProduto" />
+        </set>
+    </class>
+</hibernate-mapping>
